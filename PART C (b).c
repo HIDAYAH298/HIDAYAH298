@@ -1,12 +1,11 @@
-
 import socket
 
 def main():
  
-  client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+  client_socket = socket.socket(socket.AF_INET)
   host = "localhost"
   port = 8080
-  print("Enter a number: ")
+  print("Enter any number: ")
   number = input()
   client_socket.sendto(number.encode(), (host, port))
   data, address = client_socket.recvfrom(1024)
