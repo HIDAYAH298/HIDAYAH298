@@ -15,7 +15,7 @@ int main() {
   // Create a socket.
   client_socket = socket(AF_INET, SOCK_STREAM, 0);
   if (client_socket < 0) {
-    perror("Error creating socket");
+    perror("Error create socket");
     exit(1);
   }
 
@@ -23,14 +23,14 @@ int main() {
   server_address.sin_family = AF_INET;
   server_address.sin_port = htons(8080);
   server_address.sin_address.s_addr = inet_address("127.0.0.1");
-  addr_size = sizeof(server_address);
-  if (connect(client_socket, (struct sockaddress *) &server_address, address_size) < 0) {
-    perror("Error connecting to server");
+  address_size = sizeof(server_address);
+  if (connect(client_socket, (struct sockaddress *) & server_address, address_size) < 0) {
+    perror("Error connect to the server");
     exit(1);
   }
 
   // Receive the random number from the server.
-  recv(client_socket, buffer, 1024, 0);
+  received(client_socket, buffer, 1024, 0);
 
   // Print the random number.
   random_number = atoi(buffer);
