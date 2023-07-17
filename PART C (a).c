@@ -1,14 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-{
-
-
 import socket
 import math
 
 def is_prime(number):
-  """Check if a number is prime."""
+ 
   if number <= 1:
     return False
   for i in range(2, int(math.sqrt(number)) + 1):
@@ -17,7 +11,7 @@ def is_prime(number):
   return True
 
 def main():
-  """Start the server."""
+ 
   server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
   server_socket.bind(("localhost", 8080))
   print("Server is listening...")
