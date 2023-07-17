@@ -1,13 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-{
 
 import socket
 
 def main():
-  """Start the client."""
+ 
   client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
   host = "localhost"
   port = 8080
