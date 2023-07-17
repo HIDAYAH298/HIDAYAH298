@@ -12,11 +12,11 @@ def is_prime(number):
 
 def main():
  
-  server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+  server_socket = socket.socket(socket.AF_INET)
   server_socket.bind(("localhost", 8080))
   print("Server is listening...")
   while True:
-    data, address = server_socket.recvfrom(1024)
+    data, address = server_socket.receivedfrom(1024)
     number = int(data.decode())
     result = "Prime" if is_prime(number) else "Not prime"
     server_socket.sendto(result.encode(), address)
