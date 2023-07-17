@@ -1,4 +1,3 @@
-
 import threading
 
 class FibonacciSeries(threading.Thread):
