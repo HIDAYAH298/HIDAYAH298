@@ -6,7 +6,6 @@
 int main() {
   int pid, i;
 
-  // Create 3 child processes.
   for (i = 0; i < 3; i++) {
     pid = fork();
     if (pid == 0) {
@@ -17,10 +16,9 @@ int main() {
     }
   }
 
-  // This is the parent process.
   printf("Parent: Message\n");
   for (i = 0; i < 3; i++) {
-    wait(NULL); // Wait for the child processes to terminate.
+    wait(NULL); 
   }
 
   return 0;
