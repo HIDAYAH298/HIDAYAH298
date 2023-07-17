@@ -15,7 +15,7 @@ int main() {
   // Create a socket.
   server_socket = socket(AF_INET, SOCK_STREAM, 0);
   if (server_socket < 0) {
-    perror("Error creating socket");
+    perror("Error create the socket");
     exit(1);
   }
 
@@ -23,9 +23,9 @@ int main() {
   server_address.sin_family = AF_INET;
   server_address.sin_port = htons(8080);
   server_address.sin_address.s_address = INADDR_ANY;
-  address_size = sizeof(server_addr);
-  if (bind(server_socket, (struct sockaddress *) &server_address, address_size) < 0) {
-    perror("Error binding socket");
+  address_size = sizeof(server_address);
+  if (bind(server_socket, (struct sockaddress *) & server_address, address_size) < 0) {
+    perror("Error bind the socket");
     exit(1);
   }
 
@@ -35,7 +35,7 @@ int main() {
   // Accept a connection.
   client_socket = accept(server_socket, (struct sockaddress*) &client_address, &address_size);
   if (client_socket < 0) {
-    perror("Error accepting connection");
+    perror("Error accept the connection");
     exit(1);
   }
 
